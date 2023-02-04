@@ -1,0 +1,44 @@
+ALGORITHM FIRST_TASK
+VAR
+    str1 : STRING[50];
+    i : INTEGER := 0;
+    Words : INTEGER := 0;
+    Vowels : INTEGER := 0;
+BEGIN
+    Read (str1);
+    WHILE (str1[i] != '.') DO
+        IF (str1[i] = ' ') THEN
+            Words := Words + 1;
+        END_IF
+        IF (str1[i]='o' || str1[i]='i'|| str1[i]='y'|| str1[i]='e'|| str1[i]='a'|| str1[i]='u') THEN
+            Vowels := Vowels + 1;
+        END_IF
+    END_WHILE
+END
+
+ALGORITHM SECOND_TASK
+VAR
+    sum : INTEGER := 0;
+    set1 : ARRAY_OF INTEGER[6];
+    set2 : ARRAY_OF INTEGER[6];
+    isDistinct : BOOLEAN;
+    i : INTEGER := 0;
+BEGIN
+    set1 := [3,1,7,9];
+    set2 := [2,4,1,9,3];
+    isDistinct := true;
+    FOR i FROM 0 TO 5 STEP 1  DO
+        FOR j FROM 0 TO 5 STEP 1  DO
+        IF (set1[i] = set2[j]) THEN
+            isDistinct= false;
+        END_IF
+        IF (set1[j] = set2[i]) THEN
+            isDistinct= false;
+        END_IF
+        END_FOR
+        IF (isDistinct=true) THEN
+            sum := sum + set1[i];
+            sum := sum + set2[i];
+        END_IF
+    END_FOR
+END
